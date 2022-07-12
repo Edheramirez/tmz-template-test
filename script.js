@@ -8,20 +8,20 @@ const loader = document.getElementById('loader');
 let apiQuotes = [];
 
 // Show loading
-function loading() {
+function showLoadingSpinner() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-// Hide Loading
-function complete() {
+// Remove Loading Spinner
+function removeLoadingSpinner() {
     quoteContainer.hidden = false;
     loader.hidden = true;
 }
 
 // Show New Quote
 function newQoute () {
-    loading();
+    showLoadingSpinner();
     // Pick a randome quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
@@ -40,7 +40,7 @@ function newQoute () {
     }
     // Set Quote, Hide Loader
     quoteText.textContent = quote.text;
-    complete();
+    removeLoadingSpinner();
 }
 
 // Get Quotes From API
